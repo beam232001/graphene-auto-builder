@@ -1,0 +1,3 @@
+# Build config
+DEVICE=barbet
+BRANCH=android-14.0.0_r27

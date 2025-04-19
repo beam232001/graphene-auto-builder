@@ -1,0 +1,21 @@
+name: Build GrapheneOS
+
+on:
+  schedule:
+    - cron: "0 3 1 * *"  # 1st of every month at 03:00 UTC
+  workflow_dispatch:  # allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build GrapheneOS
+        run: |
+          chmod +x ./scripts/build.sh
+          ./scripts/build.sh
